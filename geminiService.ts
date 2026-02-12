@@ -1,11 +1,17 @@
 
-import { GoogleGenAI, Type } from "@google/genai";
+
 import { UserProfile, NutritionData, ChatMessage } from "./types";
 
 // Always use a named parameter for the API key from process.env.API_KEY.
-const ai = new GoogleGenAI({ 
-  apiKey: import.meta.env.VITE_GEMINI_API_KEY 
+const response = await fetch("/api/gemini", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ prompt })
 });
+
+const data = await response.json();
+return data.text;
+
 
 export const analyzeFoodImage = async (base64Image: string, profile: UserProfile): Promise<NutritionData> => {
   const model = 'gemini-3-flash-preview';
