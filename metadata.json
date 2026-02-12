@@ -1,0 +1,5 @@
+{
+  "name": "NutriSnap AI",
+  "description": "An AI-powered nutrition and health analysis application that detects food from images, tracks calories and water intake, and provides personalized diet plans.",
+  "requestFramePermissions": []
+}
